@@ -37,6 +37,9 @@ emp_2.pay = 124546
 print(emp_1.email)
 print(emp_1.pay)
 
+
+##### first,last,email are the instance variable which change with instance
+#### its not same like class variable
 #########  in the above code every time we have to assign value to variable but we can reduce this code 
 
 
