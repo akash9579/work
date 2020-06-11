@@ -85,12 +85,9 @@ while ($res = mysqli_fetch_array($query)) {
 
 		</table>
 	</div>
+		
+        <a href="logout.php" class="col-sm-12"><button class="btn btn-success col-sm-12" name="logout">logout</button></a>
 
-		<div class="col-lg-12"><br>
-		<div class="row">
-		<a href="logout.php" class="col-lg-3"><button class="btn btn-success col-lg-4" name="logout">logout</button></a>
-		</div>
-		</div>
 </div>
 </body>
 </html>

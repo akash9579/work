@@ -51,7 +51,7 @@ body{
 	<div class="col-lg-12"><br>
 		<div class="row">
 		<h3 class="text-white">Attendance of <?php echo $res['name']; ?></h3><br>
-		<a href="viewhr.php?id=<?php echo $id; ?>" class="col-lg-3"><button class="btn btn-success col-lg-4" name="logout">back</button></a>
+		<a href="view.php?id=<?php echo $id; ?>" class="col-lg-3"><button class="btn btn-success col-lg-4" name="logout">back</button></a>
 		<a href="logout.php" class="col-lg-3"><button class="btn btn-success col-lg-4" name="logout">logout</button></a>
 
         </div>

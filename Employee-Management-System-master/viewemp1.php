@@ -9,7 +9,7 @@ error_reporting(0);
 include 'conn.php';
 
 $id = $_GET['id'];
-$name = $_POST['name'];
+$name  = ucfirst($_POST['user']);
 $age = $_POST['age'];
 $salary = $_POST['salary'];
 $qualification = $_POST['qualification'];
@@ -17,15 +17,13 @@ $dob = date("Y-m-d",strtotime($_POST['dob']));
 $doj = date("Y-m-d",strtotime($_POST['doj']));
 $date_of_birth = $dob;
 $date_of_join = $doj;
-$day1 = $_POST['day1'];
-$month1 = $_POST['month1'];
-$year1 = $_POST['year1'];
-$date1 = "$day1-$month1-$year1";
+
 
 
 $day = $_POST['day'];
 $hours = $_POST['t_in1'];
 $hours1 = $_POST['t_out1'];
+$date1 = $_POST['date1'];
 $work_h = $_POST['wh'];
 $timein = "$hours";
 $timeout = "$hours1";
@@ -33,12 +31,19 @@ $date = date("y-m-d");
 $work_hr = "$work_h";
 
 
+$day2 = $_POST['day2'];
+$month2 = $_POST['month2'];
+$year2 = $_POST['year2'];
+$date2 = "$day2-$month2-$year2";
+$doj = date("Y-m-d",strtotime($date2));
+$date_of_join = $doj;
+
 $q="select * from employee where id = $id";
 $query = mysqli_query($conn,$q);
 $res=mysqli_fetch_array($query);
 
 
-$q2="INSERT INTO `time1`(`id`, `name`, `date`, `day`, `In_time`, `out_time`, `work_h`) VALUES ('$id','$name','$date1','$day','$timein','$timeout','$work_hr')";
+$q2="INSERT INTO `time1`(`id`, `name`, `date`, `day`, `In_time`, `out_time`, `work_h`) VALUES ('$id','$name','$date_of_join','$day','$timein','$timeout','$work_hr')";
 
 if (isset($_POST['add'])) 
 {
@@ -93,8 +98,9 @@ body{
 			</div><br>
 
 			<input type="hidden" name="id" value="<?php echo $res['id']; ?>">
+
 			<label class="text-warning">Name</label>
-			<input type="text" name="name" class="form-control" value="<?php echo $res['name']; ?>" readonly><br>
+			<input type="text" name="user" class="form-control" value="<?php echo $res['name']; ?>" readonly><br>
 
 			<label class="text-warning">age</label>
 			<input type="text" name="age" class="form-control" value="<?php echo $res['age']; ?>" readonly><br>
@@ -109,20 +115,16 @@ body{
 			<input type="text" name="dob" class="form-control"
 			value="<?php echo $res['date_of_birth']; ?>" readonly><br>
 
-			<label class="text-warning">date of Joining</label>
-			<input type="text" name="doj" class="form-control" value="<?php echo $res['date_of_join']; ?>" readonly><br>
 
-			<label class="text-warning">Date</label>
+			<label class="text-warning">Book Date</label>
 			<div class="row">
-			<div class="col-md-3"><input type="text" name="day1" class="form-control" placeholder="date" required pattern="[0-9]{1,2}"
-        	title="this field accepts only numbers  and two characters"></div>-
+			<div class="col-md-3"><input type="text" name="day2" class="form-control" placeholder="date"></div>-
 
-			<div class="col-md-3"><input type="text" name="month1" class="form-control" placeholder="month" required pattern="[0-9]{1,2}"
-        	title="this field accepts only numbers  and two characters"></div>-
+			<div class="col-md-3"><input type="text" name="month2" class="form-control" placeholder="month"></div>-
 
-			<div class="col-md-3"><input type="text" name="year1" class="form-control" placeholder="year" required pattern="[0-9]{4,4}"
-        	title="this field accepts only numbers  and 4 characters"></div><br>
-            </div> <br>
+			<div class="col-md-3"><input type="text" name="year2" class="form-control" placeholder="year"></div><br>
+            </div>
+
 
 			<label class="text-warning">day</label>
 			<select name="day" class="form-control">
@@ -138,8 +140,7 @@ body{
 			<div class="row">
 			<div class="col-md-3"><input type="text" name="t_in1" class="form-control" value="0" required pattern="[0-9]{1,2}"
         title="this field accepts only numbers  and two characters"></div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
+
 		    </div>
 			<br>
 
@@ -147,16 +148,12 @@ body{
 			<div class="row">
 			<div class="col-md-3"><input type="text" name="t_out1" class="form-control" value="0" required pattern="[0-9]{1,2}"
         title="this field accepts only numbers  and two characters"></div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
 		    </div><br>
 
 		    <label class="text-warning">working_hours</label>
 			<div class="row">
 			<div class="col-md-3"><input type="text" name="wh" class="form-control" value="0" required pattern="[0-9]{1,2}"
         title="this field accepts only numbers  and two characters"></div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
 		    </div><br>
             
             <div class="row">

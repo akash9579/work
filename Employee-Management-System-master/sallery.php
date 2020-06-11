@@ -101,7 +101,7 @@ while ($res = mysqli_fetch_array($query)) {
 		<div class="col-lg-12">
 			<div class="row">
 
-		<a href="viewemp.php?id=<?php echo $id; ?>" class="col-lg-3"><button class="btn btn-success col-lg-4" name="logout">back</button></a>
+		<a href="viewemp1.php?id=<?php echo $id; ?>" class="col-lg-3"><button class="btn btn-success col-lg-4" name="logout">back</button></a>
 		<a href="logout.php" class="col-lg-3"><button class="btn btn-success col-lg-4" name="logout">logout</button></a>
 			</div>
         </div>

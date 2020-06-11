@@ -48,7 +48,7 @@ if (isset($_POST['Login']))
         else
         {
           $b = $row['id']; 
-          $c = 'location:viewemp.php?id='.$b;
+          $c = 'location:viewemp1.php?id='.$b;
           $a = "location:viewhr.php?id=3"; 
           header($c);
             }
